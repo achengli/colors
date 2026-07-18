@@ -3,191 +3,191 @@
  *
  * Terminal color support for Maxima output.
  * Provides ANSI escape codes and colorization functions.
- * Usage: load("colors")$  then  colors#red("hello")$
+ * Usage: load("colors")$  then  colorsRed("hello")$
  */
 
 /* ── Escape code builder ─────────────────────────────────────────────────── */
 
-colors#esc: ssconcat(ascii(27))$
+colorsEsc: sconcat(ascii(27))$
 
-colors#makeCode(c) := ssconcat(colors#esc, "[", c, "m")$
+colorsMakeCode(c) := sconcat(colorsEsc, "[", c, "m")$
 
-colors#resetCode:     colors#makeCode(0)$
-colors#boldCode:      colors#makeCode(1)$
-colors#dimCode:       colors#makeCode(2)$
-colors#italicCode:    colors#makeCode(3)$
-colors#underlineCode: colors#makeCode(4)$
-colors#blinkCode:     colors#makeCode(5)$
-colors#reverseCode:   colors#makeCode(7)$
-colors#strikeCode:    colors#makeCode(9)$
+colorsResetCode:     colorsMakeCode(0)$
+colorsBoldCode:      colorsMakeCode(1)$
+colorsDimCode:       colorsMakeCode(2)$
+colorsItalicCode:    colorsMakeCode(3)$
+colorsUnderlineCode: colorsMakeCode(4)$
+colorsBlinkCode:     colorsMakeCode(5)$
+colorsReverseCode:   colorsMakeCode(7)$
+colorsStrikeCode:    colorsMakeCode(9)$
 
 /* ── Foreground colors ───────────────────────────────────────────────────── */
 
-colors#blackCode:   colors#makeCode(30)$
-colors#redCode:     colors#makeCode(31)$
-colors#greenCode:   colors#makeCode(32)$
-colors#yellowCode:  colors#makeCode(33)$
-colors#blueCode:    colors#makeCode(34)$
-colors#magentaCode: colors#makeCode(35)$
-colors#cyanCode:    colors#makeCode(36)$
-colors#whiteCode:   colors#makeCode(37)$
-colors#defaultCode: colors#makeCode(39)$
+colorsBlackCode:   colorsMakeCode(30)$
+colorsRedCode:     colorsMakeCode(31)$
+colorsGreenCode:   colorsMakeCode(32)$
+colorsYellowCode:  colorsMakeCode(33)$
+colorsBlueCode:    colorsMakeCode(34)$
+colorsMagentaCode: colorsMakeCode(35)$
+colorsCyanCode:    colorsMakeCode(36)$
+colorsWhiteCode:   colorsMakeCode(37)$
+colorsDefaultCode: colorsMakeCode(39)$
 
 /* Bright foreground */
-colors#brightBlackCode:   colors#makeCode(90)$
-colors#brightRedCode:     colors#makeCode(91)$
-colors#brightGreenCode:   colors#makeCode(92)$
-colors#brightYellowCode:  colors#makeCode(93)$
-colors#brightBlueCode:    colors#makeCode(94)$
-colors#brightMagentaCode: colors#makeCode(95)$
-colors#brightCyanCode:    colors#makeCode(96)$
-colors#brightWhiteCode:   colors#makeCode(97)$
+colorsBrightBlackCode:   colorsMakeCode(90)$
+colorsBrightRedCode:     colorsMakeCode(91)$
+colorsBrightGreenCode:   colorsMakeCode(92)$
+colorsBrightYellowCode:  colorsMakeCode(93)$
+colorsBrightBlueCode:    colorsMakeCode(94)$
+colorsBrightMagentaCode: colorsMakeCode(95)$
+colorsBrightCyanCode:    colorsMakeCode(96)$
+colorsBrightWhiteCode:   colorsMakeCode(97)$
 
 /* ── Background colors ───────────────────────────────────────────────────── */
 
-colors#bgBlackCode:   colors#makeCode(40)$
-colors#bgRedCode:     colors#makeCode(41)$
-colors#bgGreenCode:   colors#makeCode(42)$
-colors#bgYellowCode:  colors#makeCode(43)$
-colors#bgBlueCode:    colors#makeCode(44)$
-colors#bgMagentaCode: colors#makeCode(45)$
-colors#bgCyanCode:    colors#makeCode(46)$
-colors#bgWhiteCode:   colors#makeCode(47)$
-colors#bgDefaultCode: colors#makeCode(49)$
+colorsBgBlackCode:   colorsMakeCode(40)$
+colorsBgRedCode:     colorsMakeCode(41)$
+colorsBgGreenCode:   colorsMakeCode(42)$
+colorsBgYellowCode:  colorsMakeCode(43)$
+colorsBgBlueCode:    colorsMakeCode(44)$
+colorsBgMagentaCode: colorsMakeCode(45)$
+colorsBgCyanCode:    colorsMakeCode(46)$
+colorsBgWhiteCode:   colorsMakeCode(47)$
+colorsBgDefaultCode: colorsMakeCode(49)$
 
 /* Bright background */
-colors#bgBrightBlackCode:   colors#makeCode(100)$
-colors#bgBrightRedCode:     colors#makeCode(101)$
-colors#bgBrightGreenCode:   colors#makeCode(102)$
-colors#bgBrightYellowCode:  colors#makeCode(103)$
-colors#bgBrightBlueCode:    colors#makeCode(104)$
-colors#bgBrightMagentaCode: colors#makeCode(105)$
-colors#bgBrightCyanCode:    colors#makeCode(106)$
-colors#bgBrightWhiteCode:   colors#makeCode(107)$
+colorsBgBrightBlackCode:   colorsMakeCode(100)$
+colorsBgBrightRedCode:     colorsMakeCode(101)$
+colorsBgBrightGreenCode:   colorsMakeCode(102)$
+colorsBgBrightYellowCode:  colorsMakeCode(103)$
+colorsBgBrightBlueCode:    colorsMakeCode(104)$
+colorsBgBrightMagentaCode: colorsMakeCode(105)$
+colorsBgBrightCyanCode:    colorsMakeCode(106)$
+colorsBgBrightWhiteCode:   colorsMakeCode(107)$
 
 /* ── Colorize functions ──────────────────────────────────────────────────── */
 
-colors#red(text)       := sconcat(colors#redCode, text, colors#resetCode)$
-colors#green(text)     := sconcat(colors#greenCode, text, colors#resetCode)$
-colors#blue(text)      := sconcat(colors#blueCode, text, colors#resetCode)$
-colors#yellow(text)    := sconcat(colors#yellowCode, text, colors#resetCode)$
-colors#cyan(text)      := sconcat(colors#cyanCode, text, colors#resetCode)$
-colors#magenta(text)   := sconcat(colors#magentaCode, text, colors#resetCode)$
-colors#white(text)     := sconcat(colors#whiteCode, text, colors#resetCode)$
-colors#black(text)     := sconcat(colors#blackCode, text, colors#resetCode)$
+colorsRed(text)       := sconcat(colorsRedCode, text, colorsResetCode)$
+colorsGreen(text)     := sconcat(colorsGreenCode, text, colorsResetCode)$
+colorsBlue(text)      := sconcat(colorsBlueCode, text, colorsResetCode)$
+colorsYellow(text)    := sconcat(colorsYellowCode, text, colorsResetCode)$
+colorsCyan(text)      := sconcat(colorsCyanCode, text, colorsResetCode)$
+colorsMagenta(text)   := sconcat(colorsMagentaCode, text, colorsResetCode)$
+colorsWhite(text)     := sconcat(colorsWhiteCode, text, colorsResetCode)$
+colorsBlack(text)     := sconcat(colorsBlackCode, text, colorsResetCode)$
 
-colors#brightRed(text)     := sconcat(colors#brightRedCode, text, colors#resetCode)$
-colors#brightGreen(text)   := sconcat(colors#brightGreenCode, text, colors#resetCode)$
-colors#brightBlue(text)    := sconcat(colors#brightBlueCode, text, colors#resetCode)$
-colors#brightYellow(text)  := sconcat(colors#brightYellowCode, text, colors#resetCode)$
-colors#brightCyan(text)    := sconcat(colors#brightCyanCode, text, colors#resetCode)$
-colors#brightMagenta(text) := sconcat(colors#brightMagentaCode, text, colors#resetCode)$
-colors#brightWhite(text)   := sconcat(colors#brightWhiteCode, text, colors#resetCode)$
-colors#brightBlack(text)   := sconcat(colors#brightBlackCode, text, colors#resetCode)$
+colorsBrightRed(text)     := sconcat(colorsBrightRedCode, text, colorsResetCode)$
+colorsBrightGreen(text)   := sconcat(colorsBrightGreenCode, text, colorsResetCode)$
+colorsBrightBlue(text)    := sconcat(colorsBrightBlueCode, text, colorsResetCode)$
+colorsBrightYellow(text)  := sconcat(colorsBrightYellowCode, text, colorsResetCode)$
+colorsBrightCyan(text)    := sconcat(colorsBrightCyanCode, text, colorsResetCode)$
+colorsBrightMagenta(text) := sconcat(colorsBrightMagentaCode, text, colorsResetCode)$
+colorsBrightWhite(text)   := sconcat(colorsBrightWhiteCode, text, colorsResetCode)$
+colorsBrightBlack(text)   := sconcat(colorsBrightBlackCode, text, colorsResetCode)$
 
 /* ── Style functions ─────────────────────────────────────────────────────── */
 
-colors#bold(text)      := sconcat(colors#boldCode, text, colors#resetCode)$
-colors#dim(text)       := sconcat(colors#dimCode, text, colors#resetCode)$
-colors#italic(text)    := sconcat(colors#italicCode, text, colors#resetCode)$
-colors#underline(text) := sconcat(colors#underlineCode, text, colors#resetCode)$
-colors#blink(text)     := sconcat(colors#blinkCode, text, colors#resetCode)$
-colors#reverse(text)   := sconcat(colors#reverseCode, text, colors#resetCode)$
-colors#strike(text)    := sconcat(colors#strikeCode, text, colors#resetCode)$
+colorsBold(text)      := sconcat(colorsBoldCode, text, colorsResetCode)$
+colorsDim(text)       := sconcat(colorsDimCode, text, colorsResetCode)$
+colorsItalic(text)    := sconcat(colorsItalicCode, text, colorsResetCode)$
+colorsUnderline(text) := sconcat(colorsUnderlineCode, text, colorsResetCode)$
+colorsBlink(text)     := sconcat(colorsBlinkCode, text, colorsResetCode)$
+colorsReverse(text)   := sconcat(colorsReverseCode, text, colorsResetCode)$
+colorsStrike(text)    := sconcat(colorsStrikeCode, text, colorsResetCode)$
 
 /* ── Background colorize ─────────────────────────────────────────────────── */
 
-colors#bgRed(text)    := sconcat(colors#bgRedCode, text, colors#resetCode)$
-colors#bgGreen(text)  := sconcat(colors#bgGreenCode, text, colors#resetCode)$
-colors#bgBlue(text)   := sconcat(colors#bgBlueCode, text, colors#resetCode)$
-colors#bgYellow(text) := sconcat(colors#bgYellowCode, text, colors#resetCode)$
-colors#bgCyan(text)   := sconcat(colors#bgCyanCode, text, colors#resetCode)$
-colors#bgMagenta(text):= sconcat(colors#bgMagentaCode, text, colors#resetCode)$
-colors#bgWhite(text)  := sconcat(colors#bgWhiteCode, text, colors#resetCode)$
-colors#bgBlack(text)  := sconcat(colors#bgBlackCode, text, colors#resetCode)$
+colorsBgRed(text)    := sconcat(colorsBgRedCode, text, colorsResetCode)$
+colorsBgGreen(text)  := sconcat(colorsBgGreenCode, text, colorsResetCode)$
+colorsBgBlue(text)   := sconcat(colorsBgBlueCode, text, colorsResetCode)$
+colorsBgYellow(text) := sconcat(colorsBgYellowCode, text, colorsResetCode)$
+colorsBgCyan(text)   := sconcat(colorsBgCyanCode, text, colorsResetCode)$
+colorsBgMagenta(text):= sconcat(colorsBgMagentaCode, text, colorsResetCode)$
+colorsBgWhite(text)  := sconcat(colorsBgWhiteCode, text, colorsResetCode)$
+colorsBgBlack(text)  := sconcat(colorsBgBlackCode, text, colorsResetCode)$
 
 /* ── 24-bit true color ───────────────────────────────────────────────────── */
 
-colors#rgb(r, g, b, text) :=
-    sconcat(ssconcat(colors#esc, "[38;2;", r, ";", g, ";", b, "m"),
-           text, colors#resetCode)$
+colorsRgb(r, g, b, text) :=
+    sconcat(sconcat(colorsEsc, "[38;2;", r, ";", g, ";", b, "m"),
+           text, colorsResetCode)$
 
-colors#bgRgb(r, g, b, text) :=
-    sconcat(ssconcat(colors#esc, "[48;2;", r, ";", g, ";", b, "m"),
-           text, colors#resetCode)$
+colorsBgRgb(r, g, b, text) :=
+    sconcat(sconcat(colorsEsc, "[48;2;", r, ";", g, ";", b, "m"),
+           text, colorsResetCode)$
 
 /* ── Custom style ────────────────────────────────────────────────────────── */
 
-colors#style(codes, text) :=
-    sconcat(ssconcat(colors#esc, "[", codes, "m"), text, colors#resetCode)$
+colorsStyle(codes, text) :=
+    sconcat(sconcat(colorsEsc, "[", codes, "m"), text, colorsResetCode)$
 
 /* ── Convenience print functions ─────────────────────────────────────────── */
 
-colors#printRed(text)       := print(colors#red(text))$
-colors#printGreen(text)     := print(colors#green(text))$
-colors#printBlue(text)      := print(colors#blue(text))$
-colors#printYellow(text)    := print(colors#yellow(text))$
-colors#printCyan(text)      := print(colors#cyan(text))$
-colors#printMagenta(text)   := print(colors#magenta(text))$
+colorsPrintRed(text)       := print(colorsRed(text))$
+colorsPrintGreen(text)     := print(colorsGreen(text))$
+colorsPrintBlue(text)      := print(colorsBlue(text))$
+colorsPrintYellow(text)    := print(colorsYellow(text))$
+colorsPrintCyan(text)      := print(colorsCyan(text))$
+colorsPrintMagenta(text)   := print(colorsMagenta(text))$
 
-colors#printBold(text)      := print(colors#bold(text))$
-colors#printUnderline(text) := print(colors#underline(text))$
+colorsPrintBold(text)      := print(colorsBold(text))$
+colorsPrintUnderline(text) := print(colorsUnderline(text))$
 
 /* ── Exports ─────────────────────────────────────────────────────────────── */
 
-colors#exports: [
+colorsExports: [
     /* colorize */
-    [red,           colors#red],
-    [green,         colors#green],
-    [blue,          colors#blue],
-    [yellow,        colors#yellow],
-    [cyan,          colors#cyan],
-    [magenta,       colors#magenta],
-    [white,         colors#white],
-    [black,         colors#black],
+    [red,           colorsRed],
+    [green,         colorsGreen],
+    [blue,          colorsBlue],
+    [yellow,        colorsYellow],
+    [cyan,          colorsCyan],
+    [magenta,       colorsMagenta],
+    [white,         colorsWhite],
+    [black,         colorsBlack],
     /* bright */
-    [brightRed,     colors#brightRed],
-    [brightGreen,   colors#brightGreen],
-    [brightBlue,    colors#brightBlue],
-    [brightYellow,  colors#brightYellow],
-    [brightCyan,    colors#brightCyan],
-    [brightMagenta, colors#brightMagenta],
-    [brightWhite,   colors#brightWhite],
-    [brightBlack,   colors#brightBlack],
+    [brightRed,     colorsBrightRed],
+    [brightGreen,   colorsBrightGreen],
+    [brightBlue,    colorsBrightBlue],
+    [brightYellow,  colorsBrightYellow],
+    [brightCyan,    colorsBrightCyan],
+    [brightMagenta, colorsBrightMagenta],
+    [brightWhite,   colorsBrightWhite],
+    [brightBlack,   colorsBrightBlack],
     /* styles */
-    [bold,          colors#bold],
-    [dim,           colors#dim],
-    [italic,        colors#italic],
-    [underline,     colors#underline],
-    [blink,         colors#blink],
-    [reverse,       colors#reverse],
-    [strike,        colors#strike],
+    [bold,          colorsBold],
+    [dim,           colorsDim],
+    [italic,        colorsItalic],
+    [underline,     colorsUnderline],
+    [blink,         colorsBlink],
+    [reverse,       colorsReverse],
+    [strike,        colorsStrike],
     /* background */
-    [bgRed,         colors#bgRed],
-    [bgGreen,       colors#bgGreen],
-    [bgBlue,        colors#bgBlue],
-    [bgYellow,      colors#bgYellow],
-    [bgCyan,        colors#bgCyan],
-    [bgMagenta,     colors#bgMagenta],
-    [bgWhite,       colors#bgWhite],
-    [bgBlack,       colors#bgBlack],
+    [bgRed,         colorsBgRed],
+    [bgGreen,       colorsBgGreen],
+    [bgBlue,        colorsBgBlue],
+    [bgYellow,      colorsBgYellow],
+    [bgCyan,        colorsBgCyan],
+    [bgMagenta,     colorsBgMagenta],
+    [bgWhite,       colorsBgWhite],
+    [bgBlack,       colorsBgBlack],
     /* advanced */
-    [rgb,           colors#rgb],
-    [bgRgb,         colors#bgRgb],
-    [style,         colors#style],
+    [rgb,           colorsRgb],
+    [bgRgb,         colorsBgRgb],
+    [style,         colorsStyle],
     /* print */
-    [printRed,      colors#printRed],
-    [printGreen,    colors#printGreen],
-    [printBlue,     colors#printBlue],
-    [printYellow,   colors#printYellow],
-    [printCyan,     colors#printCyan],
-    [printMagenta,  colors#printMagenta],
-    [printBold,     colors#printBold],
-    [printUnderline,colors#printUnderline],
+    [printRed,      colorsPrintRed],
+    [printGreen,    colorsPrintGreen],
+    [printBlue,     colorsPrintBlue],
+    [printYellow,   colorsPrintYellow],
+    [printCyan,     colorsPrintCyan],
+    [printMagenta,  colorsPrintMagenta],
+    [printBold,     colorsPrintBold],
+    [printUnderline,colorsPrintUnderline],
     /* codes (public for advanced usage) */
-    [resetCode,     colors#resetCode]
+    [resetCode,     colorsResetCode]
 ]$
 
-colors#version:  "0.1.0"$
-colors#author:   "achengli@github.com"$
-colors#homepage: "https://github.com/achengli/colors"$
+colorsVersion:  "0.1.0"$
+colorsAuthor:   "achengli@github.com"$
+colorsHomepage: "https://github.com/achengli/colors"$

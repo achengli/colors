@@ -12,44 +12,44 @@ print("=== Testing colors package ===")$
 
 /* Check that exports exist */
 print("Checking exports ...")$
-for e in colors#exports do (
+for e in colorsExports do (
     print("  ", e[1])
 )$
 
 /* Check version */
-print("Version: ", colors#version)$
+print("Version: ", colorsVersion)$
 
 /* Test basic colorize */
 print("Testing colorize functions ...")$
-colors#printRed("This text should be red")$
-colors#printGreen("This text should be green")$
-colors#printBlue("This text should be blue")$
-colors#printYellow("This text should be yellow")$
-colors#printCyan("This text should be cyan")$
-colors#printMagenta("This text should be magenta")$
+colorsPrintRed("This text should be red")$
+colorsPrintGreen("This text should be green")$
+colorsPrintBlue("This text should be blue")$
+colorsPrintYellow("This text should be yellow")$
+colorsPrintCyan("This text should be cyan")$
+colorsPrintMagenta("This text should be magenta")$
 
 /* Test styles */
 print("Testing styles ...")$
-colors#printBold("This text should be bold")$
-colors#printUnderline("This text should be underlined")$
+colorsPrintBold("This text should be bold")$
+colorsPrintUnderline("This text should be underlined")$
 
 /* Test background */
 print("Testing background colors ...")$
-print(colors#bgRed("  Red background  "))$
-print(colors#bgGreen("  Green background  "))$
-print(colors#bgBlue("  Blue background  "))$
+print(colorsBgRed("  Red background  "))$
+print(colorsBgGreen("  Green background  "))$
+print(colorsBgBlue("  Blue background  "))$
 
 /* Test combinators */
 print("Testing bold red ...")$
-print(concat(colors#boldCode, colors#red("bold red text")))$
+print(concat(colorsBoldCode, colorsRed("bold red text")))$
 
 /* Test rgb */
 print("Testing 24-bit color ...")$
-print(colors#rgb(255, 128, 0, "Custom orange text"))$
+print(colorsRgb(255, 128, 0, "Custom orange text"))$
 
 /* Test style */
 print("Testing style ...")$
-print(colors#style("1;4;31", "Bold underlined red"))$
+print(colorsStyle("1;4;31", "Bold underlined red"))$
 
 print("")$
 print("All colors tests passed.")$
