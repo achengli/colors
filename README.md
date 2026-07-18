@@ -1,4 +1,4 @@
-<div style="width:100%;height:75px;border-radius:6px;background:linear-gradient(90deg,#E74C3C 0%,#E74C3C 14.28%,#E67E22 14.28%,#E67E22 28.57%,#F1C40F 28.57%,#F1C40F 42.85%,#2ECC71 42.85%,#2ECC71 57.14%,#3498DB 57.14%,#3498DB 71.42%,#9B59B6 71.42%,#9B59B6 85.71%,#1ABC9C 85.71%,#1ABC9C 100%);"></div>
+<img src="banner.svg" alt="colors palette" width="100%">
 
 ANSI terminal color support for Maxima output. Provides escape codes,
 colorization functions, and print helpers.
