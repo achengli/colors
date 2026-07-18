@@ -1,4 +1,23 @@
-# colors — Terminal colors for Maxima
+<div align="center">
+  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+      <td bgcolor="#E74C3C" width="33%" height="24"></td>
+      <td bgcolor="#2ECC71" width="33%" height="24"></td>
+      <td bgcolor="#3498DB" width="33%" height="24"></td>
+    </tr>
+    <tr>
+      <td bgcolor="#F1C40F" width="33%" height="24"></td>
+      <td bgcolor="#E91E63" width="33%" height="24"></td>
+      <td bgcolor="#1ABC9C" width="33%" height="24"></td>
+    </tr>
+    <tr>
+      <td bgcolor="#F8F9FA" colspan="3" height="30" align="center">
+        <b style="color:#111;font-family:monospace;">colors</b>
+        <span style="color:#555;font-family:monospace;"> — Terminal colors for Maxima</span>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ANSI terminal color support for Maxima output. Provides escape codes,
 colorization functions, and print helpers.
