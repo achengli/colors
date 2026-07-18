@@ -1,0 +1,55 @@
+/*
+ * colors/test/test_colors.mac
+ *
+ * Tests for the colors package.
+ */
+
+kill(all)$
+file_search_maxima: cons("/Users/tao/Git/colors/src/###.{mac,mc}", file_search_maxima)$
+load("colors")$
+
+print("=== Testing colors package ===")$
+
+/* Check that exports exist */
+print("Checking exports ...")$
+for e in colors#exports do (
+    print("  ", e[1])
+)$
+
+/* Check version */
+print("Version: ", colors#version)$
+
+/* Test basic colorize */
+print("Testing colorize functions ...")$
+colors#printRed("This text should be red")$
+colors#printGreen("This text should be green")$
+colors#printBlue("This text should be blue")$
+colors#printYellow("This text should be yellow")$
+colors#printCyan("This text should be cyan")$
+colors#printMagenta("This text should be magenta")$
+
+/* Test styles */
+print("Testing styles ...")$
+colors#printBold("This text should be bold")$
+colors#printUnderline("This text should be underlined")$
+
+/* Test background */
+print("Testing background colors ...")$
+print(colors#bgRed("  Red background  "))$
+print(colors#bgGreen("  Green background  "))$
+print(colors#bgBlue("  Blue background  "))$
+
+/* Test combinators */
+print("Testing bold red ...")$
+print(concat(colors#boldCode, colors#red("bold red text")))$
+
+/* Test rgb */
+print("Testing 24-bit color ...")$
+print(colors#rgb(255, 128, 0, "Custom orange text"))$
+
+/* Test style */
+print("Testing style ...")$
+print(colors#style("1;4;31", "Bold underlined red"))$
+
+print("")$
+print("All colors tests passed.")$

@@ -1,0 +1,8 @@
+name = "colors"
+version = "0.1.0"
+author = "achengli@github.com"
+description = "Terminal colors for maxima print messages"
+license = "BSD-3"
+copyright = "BY-NC"
+repository = "https://github.com/achengli/colors.git"
+minver = "5.45.0"
