@@ -1,5 +1,8 @@
 <img src="banner.svg" alt="colors palette" width="100%">
 
+Copyright (c) Stewsat  
+Author: Yassin Achengli Benmouais
+
 ANSI terminal color support for Maxima output. Provides escape codes,
 colorization functions, and print helpers.
 
