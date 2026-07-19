@@ -355,6 +355,6 @@ colorsExports: [
 
 /* ── Version info ────────────────────────────────────────────────────────── */
 
-colorsVersion:  "0.2.0"$
+colorsVersion:  "0.2.1"$
 colorsAuthor:   "achengli@github.com"$
 colorsHomepage: "https://github.com/stewsat/colors"$
