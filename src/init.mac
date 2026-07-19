@@ -12,8 +12,11 @@
 
 /* ── Escape code builder ─────────────────────────────────────────────────── */
 
+/* Build a colorsESC string */
 colorsEsc: sconcat(ascii(27))$
 
+/* Build an ANSI escape code from a numeric code
+   @param c - ANSI code number */
 colorsMakeCode(c) := sconcat(colorsEsc, "[", c, "m")$
 
 colorsResetCode:     colorsMakeCode(0)$
@@ -71,70 +74,228 @@ colorsBgBrightWhiteCode:   colorsMakeCode(107)$
 
 /* ── Colorize functions ──────────────────────────────────────────────────── */
 
+/* Wrap text in red ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in red color codes */
 colorsRed(text)       := sconcat(colorsRedCode, text, colorsResetCode)$
+
+/* Wrap text in green ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in green color codes */
 colorsGreen(text)     := sconcat(colorsGreenCode, text, colorsResetCode)$
+
+/* Wrap text in blue ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in blue color codes */
 colorsBlue(text)      := sconcat(colorsBlueCode, text, colorsResetCode)$
+
+/* Wrap text in yellow ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in yellow color codes */
 colorsYellow(text)    := sconcat(colorsYellowCode, text, colorsResetCode)$
+
+/* Wrap text in cyan ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in cyan color codes */
 colorsCyan(text)      := sconcat(colorsCyanCode, text, colorsResetCode)$
+
+/* Wrap text in magenta ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in magenta color codes */
 colorsMagenta(text)   := sconcat(colorsMagentaCode, text, colorsResetCode)$
+
+/* Wrap text in white ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in white color codes */
 colorsWhite(text)     := sconcat(colorsWhiteCode, text, colorsResetCode)$
+
+/* Wrap text in black ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in black color codes */
 colorsBlack(text)     := sconcat(colorsBlackCode, text, colorsResetCode)$
 
+/* Wrap text in bright red ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright red color codes */
 colorsBrightRed(text)     := sconcat(colorsBrightRedCode, text, colorsResetCode)$
+
+/* Wrap text in bright green ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright green color codes */
 colorsBrightGreen(text)   := sconcat(colorsBrightGreenCode, text, colorsResetCode)$
+
+/* Wrap text in bright blue ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright blue color codes */
 colorsBrightBlue(text)    := sconcat(colorsBrightBlueCode, text, colorsResetCode)$
+
+/* Wrap text in bright yellow ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright yellow color codes */
 colorsBrightYellow(text)  := sconcat(colorsBrightYellowCode, text, colorsResetCode)$
+
+/* Wrap text in bright cyan ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright cyan color codes */
 colorsBrightCyan(text)    := sconcat(colorsBrightCyanCode, text, colorsResetCode)$
+
+/* Wrap text in bright magenta ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright magenta color codes */
 colorsBrightMagenta(text) := sconcat(colorsBrightMagentaCode, text, colorsResetCode)$
+
+/* Wrap text in bright white ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright white color codes */
 colorsBrightWhite(text)   := sconcat(colorsBrightWhiteCode, text, colorsResetCode)$
+
+/* Wrap text in bright black ANSI color
+   @param text - the text to colorize
+   @returns the text wrapped in bright black color codes */
 colorsBrightBlack(text)   := sconcat(colorsBrightBlackCode, text, colorsResetCode)$
 
 /* ── Style functions ─────────────────────────────────────────────────────── */
 
+/* Apply bold ANSI style to text
+   @param text - the text to style
+   @returns the text wrapped in bold ANSI codes */
 colorsBold(text)      := sconcat(colorsBoldCode, text, colorsResetCode)$
+
+/* Apply dim ANSI style to text
+   @param text - the text to style
+   @returns the text wrapped in dim ANSI codes */
 colorsDim(text)       := sconcat(colorsDimCode, text, colorsResetCode)$
+
+/* Apply italic ANSI style to text
+   @param text - the text to style
+   @returns the text wrapped in italic ANSI codes */
 colorsItalic(text)    := sconcat(colorsItalicCode, text, colorsResetCode)$
+
+/* Apply underline ANSI style to text
+   @param text - the text to style
+   @returns the text wrapped in underline ANSI codes */
 colorsUnderline(text) := sconcat(colorsUnderlineCode, text, colorsResetCode)$
+
+/* Apply blink ANSI style to text
+   @param text - the text to style
+   @returns the text wrapped in blink ANSI codes */
 colorsBlink(text)     := sconcat(colorsBlinkCode, text, colorsResetCode)$
+
+/* Apply reverse video ANSI style to text
+   @param text - the text to style
+   @returns the text wrapped in reverse ANSI codes */
 colorsReverse(text)   := sconcat(colorsReverseCode, text, colorsResetCode)$
+
+/* Apply strikethrough ANSI style to text
+   @param text - the text to style
+   @returns the text wrapped in strikethrough ANSI codes */
 colorsStrike(text)    := sconcat(colorsStrikeCode, text, colorsResetCode)$
 
 /* ── Background colorize ─────────────────────────────────────────────────── */
 
+/* Wrap text in red background
+   @param text - the text
+   @returns the text with red background */
 colorsBgRed(text)    := sconcat(colorsBgRedCode, text, colorsResetCode)$
+
+/* Wrap text in green background
+   @param text - the text
+   @returns the text with green background */
 colorsBgGreen(text)  := sconcat(colorsBgGreenCode, text, colorsResetCode)$
+
+/* Wrap text in blue background
+   @param text - the text
+   @returns the text with blue background */
 colorsBgBlue(text)   := sconcat(colorsBgBlueCode, text, colorsResetCode)$
+
+/* Wrap text in yellow background
+   @param text - the text
+   @returns the text with yellow background */
 colorsBgYellow(text) := sconcat(colorsBgYellowCode, text, colorsResetCode)$
+
+/* Wrap text in cyan background
+   @param text - the text
+   @returns the text with cyan background */
 colorsBgCyan(text)   := sconcat(colorsBgCyanCode, text, colorsResetCode)$
+
+/* Wrap text in magenta background
+   @param text - the text
+   @returns the text with magenta background */
 colorsBgMagenta(text):= sconcat(colorsBgMagentaCode, text, colorsResetCode)$
+
+/* Wrap text in white background
+   @param text - the text
+   @returns the text with white background */
 colorsBgWhite(text)  := sconcat(colorsBgWhiteCode, text, colorsResetCode)$
+
+/* Wrap text in black background
+   @param text - the text
+   @returns the text with black background */
 colorsBgBlack(text)  := sconcat(colorsBgBlackCode, text, colorsResetCode)$
 
 /* ── 24-bit true color ───────────────────────────────────────────────────── */
 
+/* Create a 24-bit true color foreground string
+   @param r - red channel (0-255)
+   @param g - green channel (0-255)
+   @param b - blue channel (0-255)
+   @param text - the text to colorize
+   @returns the text wrapped in true color ANSI codes */
 colorsRgb(r, g, b, text) :=
     sconcat(sconcat(colorsEsc, "[38;2;", r, ";", g, ";", b, "m"),
            text, colorsResetCode)$
 
+/* Create a 24-bit true color background string
+   @param r - red channel (0-255)
+   @param g - green channel (0-255)
+   @param b - blue channel (0-255)
+   @param text - the text to colorize
+   @returns the text with true color background */
 colorsBgRgb(r, g, b, text) :=
     sconcat(sconcat(colorsEsc, "[48;2;", r, ";", g, ";", b, "m"),
            text, colorsResetCode)$
 
 /* ── Custom style ────────────────────────────────────────────────────────── */
 
+/* Apply custom ANSI escape codes to text
+   @param codes - semicolon-separated ANSI codes (e.g. "1;4;31")
+   @param text - the text to style
+   @returns the text wrapped in custom ANSI codes */
 colorsStyle(codes, text) :=
     sconcat(sconcat(colorsEsc, "[", codes, "m"), text, colorsResetCode)$
 
 /* ── Convenience print functions ─────────────────────────────────────────── */
 
+/* Print text in red
+   @param text - the text to print */
 colorsPrintRed(text)       := print(colorsRed(text))$
+
+/* Print text in green
+   @param text - the text to print */
 colorsPrintGreen(text)     := print(colorsGreen(text))$
+
+/* Print text in blue
+   @param text - the text to print */
 colorsPrintBlue(text)      := print(colorsBlue(text))$
+
+/* Print text in yellow
+   @param text - the text to print */
 colorsPrintYellow(text)    := print(colorsYellow(text))$
+
+/* Print text in cyan
+   @param text - the text to print */
 colorsPrintCyan(text)      := print(colorsCyan(text))$
+
+/* Print text in magenta
+   @param text - the text to print */
 colorsPrintMagenta(text)   := print(colorsMagenta(text))$
 
+/* Print text bold
+   @param text - the text to print */
 colorsPrintBold(text)      := print(colorsBold(text))$
+
+/* Print text underlined
+   @param text - the text to print */
 colorsPrintUnderline(text) := print(colorsUnderline(text))$
 
 /* ── Exports ─────────────────────────────────────────────────────────────── */
@@ -192,6 +353,8 @@ colorsExports: [
     [resetCode,     colorsResetCode]
 ]$
 
-colorsVersion:  "0.1.0"$
+/* ── Version info ────────────────────────────────────────────────────────── */
+
+colorsVersion:  "0.2.0"$
 colorsAuthor:   "achengli@github.com"$
-colorsHomepage: "https://github.com/achengli/colors"$
+colorsHomepage: "https://github.com/stewsat/colors"$
